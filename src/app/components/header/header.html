@@ -1,1 +1,17 @@
-<p>header works!</p>
+<header class="aq-header">
+  <button class="aq-header__btn" type="button" aria-label="Menu">
+    <span class="material-symbol">menu</span>
+  </button>
+
+  <img [src]="logoPath() + '/logo.png'" alt="Brand Logo" class="aq-header__logo" />
+  <h1 class="aq-header__title">Aigens Coffee Shop</h1>
+
+  <div class="aq-header__actions">
+    <button class="aq-header__btn" type="button" aria-label="Change Language">
+      <span class="material-symbol">language</span>
+    </button>
+    <button class="aq-header__btn" type="button" aria-label="User Profile">
+      <span class="material-symbol">account_circle</span>
+    </button>
+  </div>
+</header>
