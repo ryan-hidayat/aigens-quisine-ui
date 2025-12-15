@@ -1,0 +1,38 @@
+/* --- TYPOGRAPHY MIXINS (SCSS build-time helpers) --- */
+
+// Pattern: --category-variant-level-property
+@mixin apply-token-styles($category, $variant, $level) {
+  font-family: var(--#{$category}-#{$variant}-#{$level}-font);
+  font-size: var(--#{$category}-#{$variant}-#{$level}-size);
+  font-weight: var(--#{$category}-#{$variant}-#{$level}-weight);
+  line-height: var(--#{$category}-#{$variant}-#{$level}-lh);
+
+  // Optional properties (fallbacks)
+  font-style: var(--#{$category}-#{$variant}-#{$level}-style, normal);
+  text-decoration: var(--#{$category}-#{$variant}-#{$level}-decor, none);
+}
+
+/* 1. HEADLINE (1-6) */
+@mixin type-headline($level) {
+  @include apply-token-styles('headline', 'default', $level);
+}
+
+/* 2. TITLE (1-3) */
+@mixin type-title($level) {
+  @include apply-token-styles('title', 'default', $level);
+}
+
+/* 3. SUBTITLE (Default & Medium) */
+@mixin type-subtitle($level, $variant: 'default') {
+  @include apply-token-styles('subtitle', $variant, $level);
+}
+
+/* 4. BODY (1-3) */
+@mixin type-body($level) {
+  @include apply-token-styles('body', 'default', $level);
+}
+
+/* 5. LABEL (V1-4) */
+@mixin type-label($level, $variant: 'regular') {
+  @include apply-token-styles('label', $variant, $level);
+}

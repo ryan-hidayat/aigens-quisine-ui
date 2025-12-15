@@ -1,0 +1,385 @@
+:root {
+  /* --- Design Tokens: Brand Colors --- */
+  --brand-primary-base: #4755ff;
+  --brand-secondary-base: #ffffff;
+
+  /* --- Design Tokens: Semantic Colors --- */
+  --semantic-positive-base: #12ab16;
+  --semantic-negative-base: #d83420;
+  --semantic-warning-base: #f0aa07;
+
+  /* --- Design Tokens: Neutral Colors --- */
+  --palette-cool-0: #ffffff;
+  --palette-cool-5: #ececee;
+  --palette-cool-10: #d8dadd;
+  --palette-cool-15: #c5c7cc;
+  --palette-cool-20: #b2b5bb;
+  --palette-cool-30: #9ea2a9;
+  --palette-cool-40: #8b9098;
+  --palette-cool-50: #787d87;
+  --palette-cool-60: #676b74;
+  --palette-cool-70: #565961;
+  --palette-cool-75: #44474d;
+  --palette-cool-80: #33363a;
+  --palette-cool-85: #222427;
+  --palette-cool-90: #111213;
+  --palette-cool-100: #000000;
+
+  --palette-warm-0: #ffffff;
+  --palette-warm-5: #eeedec;
+  --palette-warm-10: #dcdad9;
+  --palette-warm-15: #cbc7c6;
+  --palette-warm-20: #bab4b3;
+  --palette-warm-30: #a8a19f;
+  --palette-warm-40: #978f8c;
+  --palette-warm-50: #867c79;
+  --palette-warm-60: #736a68;
+  --palette-warm-70: #605957;
+  --palette-warm-75: #4d4745;
+  --palette-warm-80: #393534;
+  --palette-warm-85: #262323;
+  --palette-warm-90: #131211;
+  --palette-warm-100: #000000;
+
+  /* --- THEME ENGINE FORMULA (DO NOT TOUCH) --- */
+  /* => Brand Color Palette */
+  --brand-primary-500: var(--brand-primary-base);
+  --brand-primary-50: color-mix(in srgb, white 97%, var(--brand-primary-base));
+  --brand-primary-100: color-mix(in srgb, white 68%, var(--brand-primary-base));
+  --brand-primary-700: color-mix(in srgb, black 31%, var(--brand-primary-base));
+  --brand-primary-900: color-mix(in srgb, black 55%, var(--brand-primary-base));
+  --brand-primary-050: color-mix(in srgb, var(--brand-primary-base), transparent 50%);
+  --brand-primary-012: color-mix(in srgb, var(--brand-primary-base), transparent 88%);
+
+  --brand-secondary-500: var(--brand-secondary-base);
+  --brand-secondary-50: color-mix(in srgb, white 97%, var(--brand-secondary-base));
+  --brand-secondary-100: color-mix(in srgb, white 68%, var(--brand-secondary-base));
+  --brand-secondary-700: color-mix(in srgb, black 31%, var(--brand-secondary-base));
+  --brand-secondary-900: color-mix(in srgb, black 55%, var(--brand-secondary-base));
+  --brand-secondary-050: color-mix(in srgb, var(--brand-secondary-base), transparent 50%);
+  --brand-secondary-012: color-mix(in srgb, var(--brand-secondary-base), transparent 88%);
+
+  /* => Semantic Color Palette */
+  --semantic-positive-500: var(--semantic-positive-base);
+  --semantic-positive-surface: color-mix(in srgb, white 90%, var(--semantic-positive-base));
+  --semantic-positive-emphasis: color-mix(in srgb, black 55%, var(--semantic-positive-base));
+  --semantic-positive-soft: color-mix(in srgb, var(--semantic-positive-base), transparent 80%);
+  --semantic-positive-semi-transparent: color-mix(
+    in srgb,
+    var(--semantic-positive-base),
+    transparent 50%
+  );
+
+  --semantic-negative-500: var(--semantic-negative-base);
+  --semantic-negative-surface: color-mix(in srgb, white 90%, var(--semantic-negative-base));
+  --semantic-negative-emphasis: color-mix(in srgb, black 55%, var(--semantic-negative-base));
+  --semantic-negative-soft: color-mix(in srgb, var(--semantic-negative-base), transparent 80%);
+  --semantic-negative-semi-transparent: color-mix(
+    in srgb,
+    var(--semantic-negative-base),
+    transparent 50%
+  );
+
+  --semantic-warning-500: var(--semantic-warning-base);
+  --semantic-warning-surface: color-mix(in srgb, white 90%, var(--semantic-warning-base));
+  --semantic-warning-emphasis: color-mix(in srgb, black 55%, var(--semantic-warning-base));
+  --semantic-warning-soft: color-mix(in srgb, var(--semantic-warning-base), transparent 80%);
+  --semantic-warning-semi-transparent: color-mix(
+    in srgb,
+    var(--semantic-warning-base),
+    transparent 50%
+  );
+
+  /* => Neutral Color Palette */
+  --neutral-0: var(--palette-cool-0);
+  --neutral-5: var(--palette-cool-5);
+  --neutral-10: var(--palette-cool-10);
+  --neutral-15: var(--palette-cool-15);
+  --neutral-20: var(--palette-cool-20);
+  --neutral-30: var(--palette-cool-30);
+  --neutral-40: var(--palette-cool-40);
+  --neutral-50: var(--palette-cool-50);
+  --neutral-60: var(--palette-cool-60);
+  --neutral-70: var(--palette-cool-70);
+  --neutral-75: var(--palette-cool-75);
+  --neutral-80: var(--palette-cool-80);
+  --neutral-85: var(--palette-cool-85);
+  --neutral-90: var(--palette-cool-90);
+  --neutral-100: var(--palette-cool-100);
+  .theme-warm {
+    --neutral-0: var(--palette-warm-0);
+    --neutral-5: var(--palette-warm-5);
+    --neutral-10: var(--palette-warm-10);
+    --neutral-15: var(--palette-warm-15);
+    --neutral-20: var(--palette-warm-20);
+    --neutral-30: var(--palette-warm-30);
+    --neutral-40: var(--palette-warm-40);
+    --neutral-50: var(--palette-warm-50);
+    --neutral-60: var(--palette-warm-60);
+    --neutral-70: var(--palette-warm-70);
+    --neutral-75: var(--palette-warm-75);
+    --neutral-80: var(--palette-warm-80);
+    --neutral-85: var(--palette-warm-85);
+    --neutral-90: var(--palette-warm-90);
+    --neutral-100: var(--palette-warm-100);
+  }
+
+  /* --- FONT FAMILY SETUP --- */
+  --font-primary: 'Noto Sans', sans-serif;
+  --font-secondary: 'Noto Serif', serif;
+
+  /* Headline */
+  --headline-default-1-font: var(--font-primary);
+  --headline-default-1-size: clamp(2.975rem, calc(2.625rem + 1.2vw), 3.675rem);
+  --headline-default-1-weight: 700;
+  --headline-default-1-lh: 1.143;
+
+  --headline-default-2-font: var(--font-primary);
+  --headline-default-2-size: clamp(2.55rem, calc(2.25rem + 1.2vw), 3.15rem);
+  --headline-default-2-weight: 700;
+  --headline-default-2-lh: 1.167;
+
+  --headline-default-3-font: var(--font-primary);
+  --headline-default-3-size: clamp(1.7rem, calc(1.5rem + 1.2vw), 2.1rem);
+  --headline-default-3-weight: 700;
+  --headline-default-3-lh: 1.188;
+
+  --headline-default-4-font: var(--font-primary);
+  --headline-default-4-size: clamp(1.488rem, calc(1.312rem + 1.2vw), 1.838rem);
+  --headline-default-4-weight: 700;
+  --headline-default-4-lh: 1.143;
+
+  --headline-default-5-font: var(--font-primary);
+  --headline-default-5-size: clamp(1.275rem, calc(1.125rem + 1.2vw), 1.575rem);
+  --headline-default-5-weight: 700;
+  --headline-default-5-lh: 1.167;
+
+  --headline-default-6-font: var(--font-primary);
+  --headline-default-6-size: clamp(1.169rem, calc(1.031rem + 1.2vw), 1.444rem);
+  --headline-default-6-weight: 700;
+  --headline-default-6-lh: 1.182;
+
+  /* Title */
+  --title-default-1-font: var(--font-primary);
+  --title-default-1-size: clamp(1.125rem, calc(1rem + 0.9vw), 1.313rem);
+  --title-default-1-weight: 600;
+  --title-default-1-lh: 1.4;
+
+  --title-default-2-font: var(--font-primary);
+  --title-default-2-size: clamp(1.013rem, calc(0.9rem + 0.9vw), 1.181rem);
+  --title-default-2-weight: 600;
+  --title-default-2-lh: 1.444;
+
+  --title-default-3-font: var(--font-primary);
+  --title-default-3-size: clamp(0.9rem, calc(0.8rem + 0.9vw), 1.05rem);
+  --title-default-3-weight: 600;
+  --title-default-3-lh: 1.5;
+
+  /* Subtitle */
+  --subtitle-default-1-font: var(--font-primary);
+  --subtitle-default-1-size: clamp(1.013rem, calc(0.9rem + 0.9vw), 1.181rem);
+  --subtitle-default-1-weight: 600;
+  --subtitle-default-1-lh: 1.444;
+
+  --subtitle-default-2-font: var(--font-primary);
+  --subtitle-default-2-size: clamp(0.9rem, calc(0.8rem + 0.9vw), 1.05rem);
+  --subtitle-default-2-weight: 600;
+  --subtitle-default-2-lh: 1.5;
+
+  --subtitle-default-3-font: var(--font-primary);
+  --subtitle-default-3-size: clamp(0.788rem, calc(0.7rem + 0.9vw), 0.919rem);
+  --subtitle-default-3-weight: 600;
+  --subtitle-default-3-lh: 1.429;
+
+  --subtitle-medium-1-font: var(--font-secondary);
+  --subtitle-medium-1-size: clamp(1.013rem, calc(0.9rem + 0.9vw), 1.181rem);
+  --subtitle-medium-1-weight: 600;
+  --subtitle-medium-1-lh: 1.444;
+
+  --subtitle-medium-2-font: var(--font-secondary);
+  --subtitle-medium-2-size: clamp(0.9rem, calc(0.8rem + 0.9vw), 1.05rem);
+  --subtitle-medium-2-weight: 600;
+  --subtitle-medium-2-lh: 1.5;
+
+  --subtitle-medium-3-font: var(--font-secondary);
+  --subtitle-medium-3-size: clamp(0.788rem, calc(0.7rem + 0.9vw), 0.919rem);
+  --subtitle-medium-3-weight: 600;
+  --subtitle-medium-3-lh: 1.429;
+
+  /* Body */
+  --body-default-1-font: var(--font-secondary);
+  --body-default-1-size: clamp(0.95rem, calc(0.9rem + 0.4vw), 1rem);
+  --body-default-1-weight: 400;
+  --body-default-1-lh: 1.5;
+
+  --body-default-2-font: var(--font-secondary);
+  --body-default-2-size: clamp(0.831rem, calc(0.788rem + 0.4vw), 0.875rem);
+  --body-default-2-weight: 400;
+  --body-default-2-lh: 1.5;
+
+  --body-default-3-font: var(--font-secondary);
+  --body-default-3-size: clamp(0.712rem, calc(0.675rem + 0.4vw), 0.75rem);
+  --body-default-3-weight: 400;
+  --body-default-3-lh: 1.5;
+
+  /* Label */
+  --label-semibold-1-font: var(--font-primary);
+  --label-semibold-1-size: clamp(0.95rem, calc(0.9rem + 0.4vw), 1rem);
+  --label-semibold-1-weight: 600;
+  --label-semibold-1-lh: 1.5;
+
+  --label-semibold-2-font: var(--font-primary);
+  --label-semibold-2-size: clamp(0.831rem, calc(0.788rem + 0.4vw), 0.875rem);
+  --label-semibold-2-weight: 600;
+  --label-semibold-2-lh: 1.571;
+
+  --label-semibold-3-font: var(--font-primary);
+  --label-semibold-3-size: clamp(0.712rem, calc(0.675rem + 0.4vw), 0.75rem);
+  --label-semibold-3-weight: 600;
+  --label-semibold-3-lh: 1.5;
+
+  --label-semibold-4-font: var(--font-primary);
+  --label-semibold-4-size: clamp(0.594rem, calc(0.562rem + 0.4vw), 0.625rem);
+  --label-semibold-4-weight: 600;
+  --label-semibold-4-lh: 1.5;
+
+  --label-medium-1-font: var(--font-primary);
+  --label-medium-1-size: clamp(0.95rem, calc(0.9rem + 0.4vw), 1rem);
+  --label-medium-1-weight: 500;
+  --label-medium-1-lh: 1.5;
+
+  --label-medium-2-font: var(--font-primary);
+  --label-medium-2-size: clamp(0.831rem, calc(0.788rem + 0.4vw), 0.875rem);
+  --label-medium-2-weight: 500;
+  --label-medium-2-lh: 1.571;
+
+  --label-medium-3-font: var(--font-primary);
+  --label-medium-3-size: clamp(0.712rem, calc(0.675rem + 0.4vw), 0.75rem);
+  --label-medium-3-weight: 500;
+  --label-medium-3-lh: 1.5;
+
+  --label-medium-4-font: var(--font-primary);
+  --label-medium-4-size: clamp(0.594rem, calc(0.562rem + 0.4vw), 0.625rem);
+  --label-medium-4-weight: 500;
+  --label-medium-4-lh: 1.5;
+
+  --label-regular-1-font: var(--font-primary);
+  --label-regular-1-size: clamp(0.95rem, calc(0.9rem + 0.4vw), 1rem);
+  --label-regular-1-weight: 400;
+  --label-regular-1-lh: 1.5;
+
+  --label-regular-2-font: var(--font-primary);
+  --label-regular-2-size: clamp(0.831rem, calc(0.788rem + 0.4vw), 0.875rem);
+  --label-regular-2-weight: 400;
+  --label-regular-2-lh: 1.571;
+
+  --label-regular-3-font: var(--font-primary);
+  --label-regular-3-size: clamp(0.712rem, calc(0.675rem + 0.4vw), 0.75rem);
+  --label-regular-3-weight: 400;
+  --label-regular-3-lh: 1.5;
+
+  --label-regular-4-font: var(--font-primary);
+  --label-regular-4-size: clamp(0.594rem, calc(0.562rem + 0.4vw), 0.625rem);
+  --label-regular-4-weight: 400;
+  --label-regular-4-lh: 1.5;
+
+  --label-italic-1-font: var(--font-primary);
+  --label-italic-1-size: clamp(0.95rem, calc(0.9rem + 0.4vw), 1rem);
+  --label-italic-1-weight: 400;
+  --label-italic-1-lh: 1.5;
+  --label-italic-1-style: italic;
+
+  --label-italic-2-font: var(--font-primary);
+  --label-italic-2-size: clamp(0.831rem, calc(0.788rem + 0.4vw), 0.875rem);
+  --label-italic-2-weight: 400;
+  --label-italic-2-lh: 1.571;
+  --label-italic-2-style: italic;
+
+  --label-italic-3-font: var(--font-primary);
+  --label-italic-3-size: clamp(0.712rem, calc(0.675rem + 0.4vw), 0.75rem);
+  --label-italic-3-weight: 400;
+  --label-italic-3-lh: 1.5;
+  --label-italic-3-style: italic;
+
+  --label-italic-4-font: var(--font-primary);
+  --label-italic-4-size: clamp(0.594rem, calc(0.562rem + 0.4vw), 0.625rem);
+  --label-italic-4-weight: 400;
+  --label-italic-4-lh: 1.5;
+  --label-italic-4-style: italic;
+
+  --label-linethrough-1-font: var(--font-primary);
+  --label-linethrough-1-size: clamp(0.95rem, calc(0.9rem + 0.4vw), 1rem);
+  --label-linethrough-1-weight: 400;
+  --label-linethrough-1-lh: 1.5;
+  --label-linethrough-1-style: line-through;
+
+  --label-linethrough-2-font: var(--font-primary);
+  --label-linethrough-2-size: clamp(0.831rem, calc(0.788rem + 0.4vw), 0.875rem);
+  --label-linethrough-2-weight: 400;
+  --label-linethrough-2-lh: 1.571;
+  --label-linethrough-2-style: line-through;
+
+  --label-linethrough-3-font: var(--font-primary);
+  --label-linethrough-3-size: clamp(0.712rem, calc(0.675rem + 0.4vw), 0.75rem);
+  --label-linethrough-3-weight: 400;
+  --label-linethrough-3-lh: 1.5;
+  --label-linethrough-3-style: line-through;
+
+  --label-linethrough-4-font: var(--font-primary);
+  --label-linethrough-4-size: clamp(0.594rem, calc(0.562rem + 0.4vw), 0.625rem);
+  --label-linethrough-4-weight: 400;
+  --label-linethrough-4-lh: 1.5;
+  --label-linethrough-4-style: line-through;
+
+  /* --- SPACING SCALE (rem-based) --- */
+  --aq-space-0: 0rem;
+  --aq-space-px: 0.0625rem; /* 1px */
+  --aq-space-0-5: 0.125rem; /* 2px */
+  --aq-space-1: 0.25rem; /* 4px */
+  --aq-space-1-5: 0.375rem; /* 6px */
+  --aq-space-2: 0.5rem; /* 8px */
+  --aq-space-2-5: 0.625rem; /* 10px */
+  --aq-space-3: 0.75rem; /* 12px */
+  --aq-space-3-5: 0.875rem; /* 14px */
+  --aq-space-4: 1rem; /* 16px */
+  --aq-space-5: 1.25rem; /* 20px */
+  --aq-space-6: 1.5rem; /* 24px */
+  --aq-space-7: 1.75rem; /* 28px */
+  --aq-space-8: 2rem; /* 32px */
+  --aq-space-9: 2.25rem; /* 36px */
+  --aq-space-10: 2.5rem; /* 40px */
+  --aq-space-12: 3rem; /* 48px */
+  --aq-space-14: 3.5rem; /* 56px */
+  --aq-space-16: 4rem; /* 64px */
+  --aq-space-18: 4.5rem; /* 72px */
+  --aq-space-20: 5rem; /* 80px */
+  --aq-space-24: 6rem; /* 96px */
+  --aq-space-28: 7rem; /* 112px */
+  --aq-space-32: 8rem; /* 128px */
+  --aq-space-36: 9rem; /* 144px */
+  --aq-space-40: 10rem; /* 160px */
+  --aq-space-48: 12rem; /* 192px */
+  --aq-space-60: 15rem; /* 240px */
+  --aq-space-64: 16rem; /* 256px */
+  --aq-space-80: 20rem; /* 320px */
+  --aq-space-96: 24rem; /* 384px */
+  --aq-space-128: 32rem; /* 512px */
+
+  /* Backwards-compatible aliases (optional) */
+  --aq-spacing-sm: var(--aq-space-2); /* 8px */
+  --aq-spacing-md: var(--aq-space-4); /* 16px */
+
+  /* --- BORDER RADIUS --- */
+  --aq-radius-0: 0rem;
+  --aq-radius-1: 0.125rem;
+  --aq-radius-2: 0.25rem;
+  --aq-radius-3: 0.375rem;
+  --aq-radius-4: 0.5rem;
+  --aq-radius-5: 0.625rem;
+  --aq-radius-6: 0.75rem;
+  --aq-radius-7: 0.875rem;
+  --aq-radius-8: 1rem;
+  --aq-radius-10: 1.25rem;
+  --aq-radius-12: 1.5rem;
+  --aq-radius-999: 99rem;
+}
