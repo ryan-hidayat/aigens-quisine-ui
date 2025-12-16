@@ -5,18 +5,28 @@
   display: block;
   position: sticky;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 100;
   width: 100%;
+  box-sizing: border-box;
 }
 
 .aq-header {
+  --aq-header-pad-x: var(--aq-space-16);
   display: flex;
   align-items: center;
   /* Gap antar elemen kiri (Menu - Logo - Judul) */
-  gap: var(--aq-spacing-sm);
+  gap: var(--aq-spacing-md);
+  min-width: 0;
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: clip;
+  overflow-y: visible;
 
   height: 3.5rem;
-  padding: 0 var(--aq-spacing-md);
+  padding: var(--aq-spacing-sm) var(--aq-header-pad-x);
+  box-sizing: border-box;
 
   background-color: var(--brand-primary-500);
   color: var(--neutral-0);
@@ -24,13 +34,16 @@
 
   /* Style untuk Logo */
   &__logo {
-    height: 2rem; /* Sesuaikan ukuran logo agar pas di header 56px */
+    height: 2.5rem; /* Sesuaikan ukuran logo agar pas di header 56px */
     width: auto;
     object-fit: contain;
+    border-radius: 6px;
   }
 
   &__title {
     margin: 0;
+    flex: 1;
+    min-width: 0;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -41,6 +54,7 @@
 
   &__actions {
     display: flex;
+    flex: 0 0 auto;
     gap: var(--aq-spacing-sm);
 
     /* KUNCI: Dorong actions ke paling kanan */
@@ -62,16 +76,28 @@
 
     transition: background-color 0.1s;
     &:hover {
-      background-color: rgba(255, 255, 255, 0.1);
+      background-color: rgba(0, 0, 0, 0.1);
     }
 
     &:active {
-      background-color: rgba(255, 255, 255, 0.2);
+      background-color: rgba(0, 0, 0, 0.2);
       border: solid 1px rgba(0, 0, 0, 0.1);
     }
 
     .material-symbol {
       font-size: 1.5rem;
     }
+  }
+}
+
+@supports not (overflow: clip) {
+  .aq-header {
+    overflow-x: hidden;
+  }
+}
+
+@media (max-width: 600px) {
+  .aq-header {
+    --aq-header-pad-x: var(--aq-space-4);
   }
 }
