@@ -13,12 +13,14 @@
 }
 
 .aq-header {
-  --aq-header-pad-x: var(--aq-space-16);
+  /* Gunakan clamp agar padding kiri-kanan transisi mulus */
+  --aq-header-pad-x: clamp(var(--aq-space-1), calc(var(--aq-space-1) + 2vw), var(--aq-space-16));
+  --aq-header-gap: clamp(var(--aq-space-0), calc(var(--aq-space-1) + 1vw), var(--aq-spacing-md));
   display: flex;
   align-items: center;
   /* Gap antar elemen kiri (Menu - Logo - Judul) */
-  gap: var(--aq-spacing-md);
-  min-width: 0;
+  gap: var(--aq-space-1);
+  min-width: 360px;
   width: 100%;
   max-width: 100vw;
   overflow-x: clip;
@@ -34,7 +36,7 @@
 
   /* Style untuk Logo */
   &__logo {
-    height: 2.5rem; /* Sesuaikan ukuran logo agar pas di header 56px */
+    height: 2rem; /* Sesuaikan ukuran logo agar pas di header 56px */
     width: auto;
     object-fit: contain;
     border-radius: 6px;
@@ -89,15 +91,103 @@
     }
   }
 }
+/* Sidebar Styles */
+.aq-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 280px;
+  height: 100%;
+  background-color: var(--brand-primary-500);
+  z-index: 1001;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.15);
+  overflow-y: auto;
+
+  &__header {
+    height: 3.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: var(--aq-space-2);
+    padding: 0 var(--aq-space-4);
+    background-color: var(--brand-primary-500);
+    color: var(--neutral-0);
+
+    box-sizing: border-box;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  &__logo-placement {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--aq-space-2);
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  &__logo {
+    max-height: 10rem;
+    max-width: 10rem;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    flex: 0 0 auto;
+    border-radius: 6px;
+  }
+
+  &__title {
+    flex: 1;
+    min-width: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    padding: var(--aq-space-4) var(--aq-space-2);
+    gap: var(--aq-space-1);
+  }
+  &__link {
+    display: flex;
+    align-items: center;
+    gap: var(--aq-space-2);
+    padding: var(--aq-space-3);
+    border-radius: 0.5em;
+    color: var(--neutral-0);
+    text-decoration: none;
+    transition: background-color 0.1s;
+  }
+
+  &__link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  &.__link:active {
+    background-color: rgba(255, 255, 255, 0.2);
+    font-weight: bold;
+  }
+
+  .material-symbol {
+    font-size: 1.25rem;
+  }
+}
+
+.aq-sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+}
 
 @supports not (overflow: clip) {
   .aq-header {
     overflow-x: hidden;
-  }
-}
-
-@media (max-width: 600px) {
-  .aq-header {
-    --aq-header-pad-x: var(--aq-space-4);
   }
 }

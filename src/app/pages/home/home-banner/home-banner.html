@@ -1,0 +1,21 @@
+<swiper-container
+  class="aq-banner"
+  slides-per-view="1"
+  loop="true"
+  pagination="true"
+  pagination-type="progressbar"
+  autoplay-delay="5000"
+  autoplay-disable-on-interaction="false"
+>
+  <swiper-slide *ngFor="let b of banners; trackBy: trackById">
+    <a class="aq-banner__link" [href]="b.href ?? '#'" (click)="$event.preventDefault()">
+      <img
+        class="aq-banner__img"
+        [src]="b.imageUrl"
+        [alt]="b.alt ?? 'Promotion banner'"
+        loading="lazy"
+        decoding="async"
+      />
+    </a>
+  </swiper-slide>
+</swiper-container>

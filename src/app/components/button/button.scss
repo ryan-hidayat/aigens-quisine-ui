@@ -6,45 +6,54 @@
   justify-content: center;
   align-items: center;
   position: relative;
+  box-sizing: border-box;
+  max-width: 100%;
 
   /* Base Style */
-  border-radius: var(--aq-radius-8);
+  border-radius: var(--aq-radius-6);
   border: 1px solid transparent;
   cursor: pointer;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.1s ease-in-out;
   user-select: none;
 
   /* Typography dasar (menggunakan mixin label kamu) */
   @include m.type-label(2, 'medium');
 
+  /* Agar konten tombol (ikon + teks) rapi */
+  ::ng-deep .aq-btn__content {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
   /* Agar icon di dalam tombol rapi */
-  ::ng-deep .material-symbol {
+  ::ng-deep .material-symbol,
+  ::ng-deep .material-symbols-outlined {
     font-size: 1.25em; /* Sedikit lebih besar dari teks */
-    margin-right: 0.5rem; /* Jarak antara icon dan teks */
+    line-height: 1;
   }
 
   /* --- SIZES --- */
   &.aq-btn--sm {
     padding: 0.375rem 0.75rem;
-    height: 2rem;
     @include m.type-label(4, 'medium');
   }
 
   &.aq-btn--md {
     padding: 0.75rem 1.5rem;
-    height: 3rem; /* 48px standard touch target */
     @include m.type-label(2, 'medium');
   }
 
   &.aq-btn--lg {
     padding: 1rem 2rem;
-    height: 3.5rem;
-    @include m.type-label(1, 'semibold');
+    @include m.type-label(1, 'medium');
   }
 
   &.aq-btn--full {
     display: flex;
     width: 100%;
+    padding: 0.75rem;
   }
 
   /* --- VARIANTS & COLORS --- */
@@ -53,10 +62,10 @@
   &.aq-btn--solid {
     &.aq-btn--primary {
       background-color: var(--brand-primary-500);
-      color: #ffffff; /* Selalu putih di atas primary */
+      color: #ffffff; // Text color
 
       &:hover:not(.disabled) {
-        background-color: var(--brand-primary-700);
+        background-color: color-mix(in srgb, var(--brand-primary-500) 100%, black 12%);
       }
     }
 
@@ -73,13 +82,22 @@
   /* 2. OUTLINE (Border only) */
   &.aq-btn--outline {
     background-color: transparent;
-
+    border: 1px solid var(--brand-primary-500);
     &.aq-btn--primary {
-      border-color: var(--brand-primary-500);
+      border: 1px solid var(--brand-primary-500);
       color: var(--brand-primary-500);
 
       &:hover:not(.disabled) {
-        background-color: var(--brand-primary-012); /* Transparan tint */
+        background-color: var(--brand-primary-012);
+      }
+    }
+
+    &.aq-btn--secondary {
+      border: 1px solid var(--brand-primary-100);
+      color: var(--neutral-700);
+
+      &:hover:not(.disabled) {
+        background-color: var(--brand-primary-012);
       }
     }
   }
@@ -108,6 +126,6 @@
 
   /* Click effect */
   &:active:not(.disabled) {
-    transform: scale(0.98);
+    transform: scale(0.99);
   }
 }

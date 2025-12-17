@@ -1,0 +1,28 @@
+<section class="aq-action-panel" aria-label="Order actions">
+  <aq-button size="lg" color="primary" variant="solid" [fullWidth]="true" (click)="onStartOrder()"
+    ><span class="material-symbol">shopping_cart</span>
+    Start New Order
+  </aq-button>
+
+  <div class="aq-action-panel__secondary">
+    <aq-button
+      size="lg"
+      color="secondary"
+      variant="outline"
+      [fullWidth]="true"
+      (click)="onOrderHistory()"
+      ><span class="material-symbol">receipt_long</span>
+      Order History
+    </aq-button>
+
+    <aq-button
+      size="lg"
+      color="secondary"
+      variant="outline"
+      [fullWidth]="true"
+      (click)="onReservation()"
+      ><span class="material-symbol">calendar_today</span>
+      Reservation
+    </aq-button>
+  </div>
+</section>

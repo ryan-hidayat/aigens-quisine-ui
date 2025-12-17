@@ -1,17 +1,38 @@
 <header class="aq-header">
-  <button class="aq-header__btn" type="button" aria-label="Menu">
+  <button class="aq-header__btn" type="button" (click)="toggleMenu()">
     <span class="material-symbol">menu</span>
   </button>
-
-  <img [src]="logoPath() + '/logo.png'" alt="Brand Logo" class="aq-header__logo" />
+  <img [src]="brand.assets.logo" [alt]="brand.name" class="aq-header__logo" />
   <h1 class="aq-header__title">Aigens Coffee Shop</h1>
-
   <div class="aq-header__actions">
-    <button class="aq-header__btn" type="button" aria-label="Change Language">
-      <span class="material-symbol">language</span>
-    </button>
-    <button class="aq-header__btn" type="button" aria-label="User Profile">
-      <span class="material-symbol">account_circle</span>
-    </button>
+    <button class="aq-header__btn"><span class="material-symbol">language</span></button>
+    <button class="aq-header__btn"><span class="material-symbol">account_circle</span></button>
   </div>
 </header>
+
+<div class="aq-sidebar-overlay" *ngIf="isMenuOpen()" (click)="toggleMenu()" [@fadeInOut]></div>
+
+<aside class="aq-sidebar" [@slideInOut]="isMenuOpen() ? 'open' : 'closed'">
+  <div class="aq-sidebar__header">
+    <button class="aq-header__btn" (click)="toggleMenu()">
+      <span class="material-symbol">close</span>
+    </button>
+  </div>
+  <div class="aq-sidebar__logo-placement">
+    <img [src]="brand.assets.logo" [alt]="brand.name" class="aq-sidebar__logo" />
+  </div>
+  <nav class="aq-sidebar__nav">
+    <a href="#" class="aq-sidebar__link"><span class="material-symbol">home</span>Home</a>
+    <a href="#" class="aq-sidebar__link"><span class="material-symbol">newsmode</span>News</a>
+    <a href="#" class="aq-sidebar__link"><span class="material-symbol">store</span>Store list</a>
+    <a href="#" class="aq-sidebar__link"
+      ><span class="material-symbol">account_box</span>Membership</a
+    >
+    <a href="#" class="aq-sidebar__link"><span class="material-symbol">redeem</span>Rewards</a>
+    <a href="#" class="aq-sidebar__link"><span class="material-symbol">approval</span>E-Stamp</a>
+    <a href="#" class="aq-sidebar__link"><span class="material-symbol">handshake</span>Referral</a>
+    <a href="#" class="aq-sidebar__link"
+      ><span class="material-symbol">list_alt_check</span>Customer Survey</a
+    >
+  </nav>
+</aside>
